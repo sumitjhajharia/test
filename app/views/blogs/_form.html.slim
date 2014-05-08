@@ -1,0 +1,20 @@
+= form_for (@blog), html: {class: "form-horizontal", role: "form"} do |f|
+    .col-sm-6.well
+        .form-group
+            label.control-label.col-sm-2 for= 'name'
+                |User
+            .col-sm-8
+                = f.select :user_id, User.all.collect {|p| [ p.full_name, p.id ] }
+        .form-group
+            label.control-label.col-sm-2 for= 'title'
+                |Title
+            .col-sm-8
+                = f.text_field :title, class: "form-control"
+            label#form-offer-on-error.label.label-danger
+        .form-group
+            label.control-label.col-sm-2 for= 'content'
+                |Content
+            .col-sm-8
+                = f.text_area :content, class: "form-control"
+            label#form-offer-on-error.label.label-danger
+        button.btn.btn-success.btn-md.icon-ok type = "submit"  Submit
